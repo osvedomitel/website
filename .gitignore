@@ -1,0 +1,14 @@
+# virtual environment
+/venv/*
+
+# django local settings
+/project/settings_local.py
+
+# database
+db.sqlite
+
+# python temps
+*.py[cod]
+
+# editor temps
+*.swp

@@ -1,0 +1,6 @@
+<article class="{{ classes }}">
+	<h1>{{ article.title }}</h1>
+	{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
+	{{ article.excerpt }}
+	<a href="{{ article.get_absolute_url }}" title="{{ article.title }}">Прочети още</a>
+</article>

@@ -1,0 +1,10 @@
+{% extends "extends/base.html" %}
+
+{% block title %}{{ issue.name }}{% endblock %}
+
+{% block main %}
+<article class="issue">
+	<h1>{{ issue.name }}</h1>
+	{% include "includes/issue_front.html" %}
+</article>
+{% endblock %}

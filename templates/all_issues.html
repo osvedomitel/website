@@ -1,0 +1,11 @@
+{% extends "extends/base.html" %}
+
+{% block title %}Всички броеве{% endblock %}
+
+{% block main %}
+<ul>
+	{% for issue in issues %}
+	<a href="{% url "issue" issue.published.year issue.published.month %}" title="{{ issue.name }}">{{ issue.name }}</a>
+	{% endfor %}
+</ul>
+{% endblock %}

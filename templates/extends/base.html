@@ -1,0 +1,37 @@
+{% load static %}<!DOCTYPE html>
+<html lang="bg">
+<head>
+	<meta charset="utf-8" />
+	<!--meta name="description" content="{% block description %}{% endblock %}" /-->
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+	<title>Български освѣдомитель – {% block title %}{% endblock %}</title>
+
+	<!--link rel="icon" type="image/png" href="{% static 'favicon.png' %}" /-->
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style.css' %}" />
+</head>
+<body>
+	<header>
+		<div class="left">
+			Новини отъ България. Издание съ мнѣние.
+		</div>
+
+		<h1><a href="{% url "home" %}" title="Български освѣдомитель">Български освѣдомитель</a></h1>
+
+		<div class="pull-right">
+			Разпространява се свободно въ Интернетъ.
+		</div>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a></li>
+			{% for cat in categories %}
+			<li><a href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
+
+	<main>{% block main %}{% endblock %}</main>
+</body>
+</html>
