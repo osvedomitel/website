@@ -16,6 +16,7 @@ class SyllabifyTestCase(unittest.TestCase):
         self.ok('пролетта', 'про-лет-та')
         self.ok('радостъ', 'ра-достъ')
         self.ok('странникъ', 'стран-никъ')
+        self.ok('хронология', 'хро-но-ло-ги-я')
 
     def test_y(self):
         self.ok('достойнство', 'дос-тойн-ство')
@@ -38,3 +39,4 @@ class SyllabifyTestCase(unittest.TestCase):
     def test_yus(self):
         self.ok('бѫдѫ', 'бѫ-дѫ')
         self.ok('пѫнъ', 'пѫнъ')
+        self.ok('ѫгълъ', 'ѫ-гълъ')

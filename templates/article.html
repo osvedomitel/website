@@ -1,6 +1,6 @@
-{% load orthography %}
-
 {% extends "extends/base.html" %}
+
+{% load orthography restructuredtext %}
 
 {% block title %}{{ article.title }}{% endblock %}
 
@@ -8,6 +8,6 @@
 <article class="article">
 	<h1>{{ article.title }}</h1>
 	{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
-	{{ article.text | add_soft_hyphens }}
+	{{ article.text | add_soft_hyphens | rest2html }}
 </article>
 {% endblock %}
