@@ -1,5 +1,6 @@
 from datetime import date
 
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
@@ -12,7 +13,7 @@ taxonomy
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name='име')
     slug = models.SlugField(allow_unicode=True, verbose_name='охлюв')
-    weight = models.PositiveSmallIntegerField(verbose_name='тежест')
+    order = models.PositiveSmallIntegerField(verbose_name='пореден номер')
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
     last_modified = models.DateTimeField(
@@ -20,7 +21,7 @@ class Category(models.Model):
     )
 
     class Meta:
-        ordering = ('-weight',)
+        ordering = ('order',)
         verbose_name = 'рубрика'
         verbose_name_plural = 'рубрики'
 
@@ -34,6 +35,7 @@ class Category(models.Model):
 class Keyword(models.Model):
     keyword = models.CharField(max_length=50, verbose_name='ключова дума')
     slug = models.SlugField(allow_unicode=True, verbose_name='охлюв')
+    order = models.PositiveSmallIntegerField(verbose_name='пореден номер')
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
     last_modified = models.DateTimeField(
@@ -41,6 +43,7 @@ class Keyword(models.Model):
     )
 
     class Meta:
+        ordering = ('order',)
         verbose_name = 'ключова дума'
         verbose_name_plural = 'ключови думи'
 
@@ -128,6 +131,7 @@ class Article(models.Model):
     issue = models.ForeignKey(
         Issue, on_delete=models.PROTECT, verbose_name='брой'
     )
+    order = models.PositiveSmallIntegerField(verbose_name='пореден номер')
     block = models.SmallIntegerField(
         choices=BLOCK_CHOICES, default=-1, verbose_name='блокче'
     )
@@ -138,6 +142,7 @@ class Article(models.Model):
     keywords = models.ManyToManyField(
         Keyword, blank=True, verbose_name='ключови думи'
     )
+    authors = models.ManyToManyField(User, blank=True, verbose_name='автори')
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
     last_modified = models.DateTimeField(
@@ -146,6 +151,7 @@ class Article(models.Model):
 
     class Meta:
         unique_together = ('issue', 'slug')
+        ordering = ('order',)
         verbose_name = 'статия'
         verbose_name_plural = 'статии'
 

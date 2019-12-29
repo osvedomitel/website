@@ -1,0 +1,11 @@
+{% load orthography restructuredtext %}
+
+<section class="article-list">
+	{% for article in articles %}
+	<article>
+		<h1>{{ article.title }}</h1>
+		{{ article.excerpt | add_soft_hyphens | rest2html }}
+		<a href="{{ article.get_absolute_url }}" title="{{ article.title }}">Прочети още</a>
+	</article>
+	{% endfor %}
+</section>

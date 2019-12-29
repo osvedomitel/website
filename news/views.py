@@ -10,16 +10,20 @@ def home(request):
 
 def issue(request, year, month):
     issue = get_object_or_404(
-        Issue.objects.with_blocks(),
+        Issue,
         online=True,
         published__year=year,
         published__month=month
     )
-    return render(request, 'issue.html', {'issue': issue})
+    context = {
+        'issue': issue,
+        'articles': issue.article_set.order_by('order')
+    }
+    return render(request, 'issue.html', context)
 
 
 def all_issues(request):
-    issues = Issue.objects.filter(online=True)
+    issues = Issue.objects.filter(online=True).order_by('-published')
     return render(request, 'all_issues.html', {'issues': issues})
 
 
@@ -35,9 +39,17 @@ def article(request, year, month, slug):
 
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    return render(request, 'category.html', {'category': category})
+    context = {
+        'category': category,
+        'articles': category.article_set.all()
+    }
+    return render(request, 'category.html', context)
 
 
 def keyword(request, slug):
     keyword = get_object_or_404(Keyword, slug=slug)
-    return render(request, 'keyword.html', {'keyword': keyword})
+    context = {
+        'keyword': keyword,
+        'articles': keyword.article_set.all()
+    }
+    return render(request, 'keyword.html', context)

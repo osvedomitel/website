@@ -8,6 +8,34 @@
 <article class="article">
 	<h1>{{ article.title }}</h1>
 	{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
+
 	{{ article.text | add_soft_hyphens | rest2html }}
+
+	{% if article.authors.exists %}
+	<section class="authors">
+		{% for author in article.authors.all %}
+		<span>{{ author.get_full_name }}</span>
+		{% endfor %}
+	</section>
+	{% endif %}
+
+	<section class="issue">
+		Публикувано въ
+		<a href="{{ article.issue.get_absolute_url }}" title="{{ article.issue.name }}">{{ article.issue.name }}</a>
+	</section>
+
+	<section class="category">
+		Рубрика:
+		<a href="{{ article.category.get_absolute_url }}" title="{{ article.category.name }}">{{ article.category.name }}</a>
+	</section>
+
+	{% if article.keywords.exists %}
+	<section class="keywords">
+		Ключови думи:
+		{% for keyword in article.keywords.all %}
+		<a href="{{ keyword.get_absolute_url }}" title="{{ keyword.keyword }}">{{ keyword.keyword }}</a>
+		{% endfor %}
+	</section>
+	{% endif %}
 </article>
 {% endblock %}

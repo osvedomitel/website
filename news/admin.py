@@ -5,10 +5,10 @@ from news.models import Article, Category, Issue, Keyword
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'weight', 'last_modified',)
+    list_display = ('name', 'order', 'last_modified',)
     fieldsets = (
         (None, {
-            'fields': ('name', 'slug', 'weight',)
+            'fields': ('name', 'slug', 'order',)
         }),
         ('Хронология', {
             'classes': ('collapse',),
@@ -21,10 +21,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Keyword)
 class KeywordAdmin(admin.ModelAdmin):
-    list_display = ('keyword', 'last_modified',)
+    list_display = ('keyword', 'order', 'last_modified',)
+    search_fields = ('keyword',)
     fieldsets = (
         (None, {
-            'fields': ('keyword', 'slug',)
+            'fields': ('keyword', 'slug', 'order',)
         }),
         ('Хронология', {
             'classes': ('collapse',),
@@ -54,19 +55,23 @@ class IssueAdmin(admin.ModelAdmin):
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'issue', 'category', 'last_modified',)
+    ordering = ('-issue__published', 'order',)
     list_filter = ('category', 'issue',)
+    search_fields = ('title',)
     fieldsets = (
         (None, {
             'fields': ('title', 'slug', 'subtitle', 'text',)
         }),
         ('Таксономия', {
-            'fields': ('issue', 'block', 'category', 'keywords',)
+            'fields': (
+                'issue', 'order', 'block', 'category', 'keywords', 'authors',
+            )
         }),
         ('Хронология', {
             'classes': ('collapse',),
             'fields': ('created', 'last_modified',)
         })
     )
-    filter_horizontal = ('keywords',)
+    autocomplete_fields = ('keywords', 'authors',)
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created', 'last_modified',)

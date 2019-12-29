@@ -4,6 +4,7 @@
 
 {% block main %}
 <article class="category">
-	<h1>{{ category.name }}</h1>
+	<h1>Статии от рубриката „{{ category.name }}“</h1>
+	{% include "includes/list_of_articles.html" %}
 </article>
 {% endblock %}

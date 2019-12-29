@@ -4,6 +4,7 @@
 
 {% block main %}
 <article class="keyword">
-	<h1>{{ keyword.keyword }}</h1>
+	<h1>Статии отбелѣзани с ключова дума „{{ keyword.keyword }}“</h1>
+	{% include "includes/list_of_articles.html" %}
 </article>
 {% endblock %}

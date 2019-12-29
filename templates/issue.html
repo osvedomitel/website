@@ -4,7 +4,7 @@
 
 {% block main %}
 <article class="issue">
-	<h1>{{ issue.name }}</h1>
-	{% include "includes/issue_front.html" %}
+	<h1>Статии от {{ issue.name | lower }}</h1>
+	{% include "includes/list_of_articles.html" %}
 </article>
 {% endblock %}

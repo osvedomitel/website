@@ -3,8 +3,18 @@
 {% block title %}{{ issue.name }}{% endblock %}
 
 {% block main %}
-<article class="issue">
-	<h1>{{ issue.name }}</h1>
-	{% include "includes/issue_front.html" %}
+<article class="issue front-page">
+	<div class="row">
+		{% include "includes/front_page_block.html" with article=issue.blocks.0 classes="" %}
+		{% include "includes/front_page_block.html" with article=issue.blocks.1 classes="" %}
+	</div>
+
+	<div class="row">
+		{% include "includes/front_page_block.html" with article=issue.blocks.2 classes="" %}
+		{% include "includes/front_page_block.html" with article=issue.blocks.3 classes="" %}
+		{% include "includes/front_page_block.html" with article=issue.blocks.4 classes="" %}
+		{% include "includes/front_page_block.html" with article=issue.blocks.5 classes="" %}
+		{% include "includes/front_page_block.html" with article=issue.blocks.6 classes="" %}
+	</div>
 </article>
 {% endblock %}
