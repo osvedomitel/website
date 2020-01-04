@@ -12,3 +12,8 @@ db.sqlite
 
 # editor temps
 *.swp
+
+# static files
+/static/dist/*.css
+/static/node_modules/*
+/static/package-lock.json

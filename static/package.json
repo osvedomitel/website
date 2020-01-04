@@ -1,0 +1,14 @@
+{
+  "name": "osvedomitel",
+  "private": true,
+  "scripts": {
+    "css-build": "lessc src/style.less --autoprefix > dist/style.css",
+    "css-watch": "chokidar 'src/*.less' -c 'npm run css-build'",
+    "watch": "npm run css-watch"
+  },
+  "devDependencies": {
+    "chokidar-cli": "2.1.0",
+    "less": "3.10.3",
+    "less-plugin-autoprefix": "2.0.0"
+  }
+}
