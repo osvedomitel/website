@@ -127,6 +127,9 @@ class Article(models.Model):
         max_length=200, blank=True, verbose_name='подзаглавие'
     )
     text = models.TextField(verbose_name='текст')
+    truncate_after = models.PositiveSmallIntegerField(
+        default=100, verbose_name='отрязване след дума'
+    )
 
     issue = models.ForeignKey(
         Issue, on_delete=models.PROTECT, verbose_name='брой'
@@ -161,7 +164,3 @@ class Article(models.Model):
     def get_absolute_url(self):
         year, month = self.issue.published.year, self.issue.published.month
         return reverse('article', args=[year, month, self.slug])
-
-    @property
-    def excerpt(self):
-        return self.text

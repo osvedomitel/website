@@ -1,6 +1,11 @@
 p {
 	hyphens: manual;
 	text-align: justify;
+	text-indent: 40px;
+}
+
+p:first-of-type {
+	text-indent: 0;
 }
 
 h1, h2, h3, h4, h5, label, p {
@@ -79,7 +84,7 @@ h1, h2, h3, h4, h5, label, p {
 	display: grid;
 	grid-gap: 25px;
 	grid-template-columns: 1fr 2fr 1fr;
-	grid-template-rows: 800px 300px 300px 500px;
+	grid-template-rows: auto auto auto auto;
 	padding-top: 15px;
 }
 

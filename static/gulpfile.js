@@ -1,11 +1,24 @@
 const { src, dest, watch } = require('gulp');
+
 const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
+const csso = require('gulp-csso');
+const merge = require('merge-stream');
 
 
 function css(cb) {
-	src('src/style.css')
-		.pipe(autoprefixer())
+	merge(
+		src('node_modules/normalize.css/normalize.css'),
+		src('src/*.css')
+			.pipe(autoprefixer())
+	)
+		.pipe(concat('style.css'))
+		.pipe(csso({
+			comments: false,
+			restructure: false
+		}))
 		.pipe(dest('dist'));
+
 	cb();
 };
 

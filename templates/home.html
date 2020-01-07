@@ -1,5 +1,7 @@
 {% extends "extends/base.html" %}
 
+{% load orthography %}
+
 {% block title %}{{ issue.name }}{% endblock %}
 
 {% block main %}
@@ -11,6 +13,14 @@
 	{% include "includes/front_page_block.html" with article=issue.blocks.4 classes="four" %}
 	{% include "includes/front_page_block.html" with article=issue.blocks.5 classes="five" %}
 	{% include "includes/front_page_block.html" with article=issue.blocks.6 classes="six" %}
-	<div class="seven">статично съдържание</div>
+	<article class="seven">
+		<p>
+		{% filter add_soft_hyphens %}
+			Материали изпращайте на адресъ <a href="mailto:osvedomitel@gmail.com">osvedomitel@gmail.com</a>.
+			Източницитѣ на информацията трѣбва да бѫдат ясно посочени въ самия материалъ или въ придружаващия текстъ.
+			Въ случай на одобрѣние за публикация, правописътъ ще бѫде приведенъ въ съобразность съ нормитѣ на „Български освѣдомителъ“.
+		{% endfilter %}
+		</p>
+	</article>
 </article>
 {% endblock %}

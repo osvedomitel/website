@@ -60,7 +60,7 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug', 'subtitle', 'text',)
+            'fields': ('title', 'slug', 'subtitle', 'text', 'truncate_after',)
         }),
         ('Таксономия', {
             'fields': (
