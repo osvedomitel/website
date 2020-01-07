@@ -8,28 +8,30 @@
 
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style.css' %}" />
 </head>
-<body>
-	<header>
-		<div class="pull-left">
-			Новини отъ България. Издание съ мнѣние.
-		</div>
-
-		<h1><a href="{% url "home" %}" title="Български освѣдомитель">Български освѣдомитель</a></h1>
-
-		<div class="pull-right">
-			Разпространява се свободно въ Интернетъ.
-		</div>
-	</header>
-
-	<nav>
-		<ul>
-			<li><a href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a></li>
+<body class="page-wrapper">
+	<div class="newspaper">
+		<header class="header">
+			<div class=" header__subtitle header__subtitle--left">
+				Новини отъ България.<br /> Издание съ мнѣние.
+			</div>
+	
+			<h1 class="header__title">
+				<a class="header__link" href="{% url "home" %}" title="Български освѣдомитель">Български освѣдомитель</a>
+			</h1>
+	
+			<div class="header__subtitle header__subtitle--right">
+				Разпространява се свободно въ Интернетъ.
+			</div>
+		</header>
+	
+		<nav class='navigation'>
+			<a class="navigation__item" href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a>
 			{% for cat in categories %}
-			<li><a href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a></li>
+			<a class="navigation__item" href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a>
 			{% endfor %}
-		</ul>
-	</nav>
-
-	<main>{% block main %}{% endblock %}</main>
+		</nav>
+	
+		<main class='main'>{% block main %}{% endblock %}</main>
+	</div>
 </body>
 </html>
