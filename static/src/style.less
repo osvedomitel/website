@@ -10,49 +10,44 @@ h1, h2, h3, h4, h5, label, p {
 }
 
 .page-wrapper {
-	background: white;
 	box-sizing: border-box;
 	max-width: 1400px;
 	margin: 0 auto;
-	padding: 50px;
-	background: url('./images/paper.png');
+	padding: 40px;
 }
 
 .newspaper {
-	background: white;
+	background: #FFFFEB;
 	border-radius: 3px;
 	box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.6);
 	padding: 20px;
 }
 
 .main {
+	border-top: 4px solid rgb(196, 109, 90);
 }
 
 .header {
 	display: grid;
 	align-items: center;
 	grid-template-columns: 1fr 3fr 1fr;
-	border-bottom: 1px solid #000;
 	padding: 20px;
+	border-bottom: 4px solid rgb(196, 109, 90);
 }
 
 .header__title {
 	text-align: center;
 	font-size: 50px;
+	border-left: 4px solid rgb(196, 109, 90);
+	border-right: 4px solid rgb(196, 109, 90);
+	margin: 0;
+	padding: 40px 0;
+	text-transform: uppercase;
 }
 
 .header__link {
 	color: #222;
 	text-decoration: none;
-}
-
-.navigation {
-	box-sizing: border-box;
-	width: 100%;
-	padding: 20px;
-}
-
-.navigation__item {
 }
 
 .header__subtitle--left {
@@ -63,12 +58,31 @@ h1, h2, h3, h4, h5, label, p {
 	text-align: right;
 }
 
+.navigation {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.navigation__item {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #333;
+
+	&:hover {
+		text-decoration: underline;
+		color: rgb(196, 109, 90);
+	}
+}
+
 .front-page {
 	display: grid;
 	grid-gap: 25px;
 	grid-template-columns: 1fr 2fr 1fr;
 	grid-template-rows: 800px 300px 300px 500px;
-	padding-top: 50px;
+	padding-top: 15px;
 }
 
 .article {
@@ -84,6 +98,7 @@ h1, h2, h3, h4, h5, label, p {
 	font-size: 35px;
 	margin: 0 0 30px 0;
 	text-align: center;
+	text-decoration: underline;
 }
 
 .zero {
@@ -143,8 +158,8 @@ h1, h2, h3, h4, h5, label, p {
 		flex-direction: column;
 	}
 
-	.header__subtitle--left,
-	.header__subtitle--right {
+	.header__subtitle,
+	.header__subtitle {
 		text-align: center;
 	}
 
