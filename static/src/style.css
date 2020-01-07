@@ -1,5 +1,3 @@
-// common
-
 p {
 	hyphens: manual;
 	text-align: justify;
@@ -70,11 +68,11 @@ h1, h2, h3, h4, h5, label, p {
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #333;
+}
 
-	&:hover {
-		text-decoration: underline;
-		color: rgb(196, 109, 90);
-	}
+.navigation__item:hover {
+	text-decoration: underline;
+	color: rgb(196, 109, 90);
 }
 
 .front-page {
@@ -89,9 +87,10 @@ h1, h2, h3, h4, h5, label, p {
 	overflow: hidden;
 	padding: 25px;
 
-	p {
-		overflow: hidden;
-	}
+}
+
+.article p {
+	overflow: hidden;
 }
 
 .article__heading {
@@ -166,12 +165,11 @@ h1, h2, h3, h4, h5, label, p {
 	.front-page {
 		display: flex;
 		flex-direction: column;
+	}
 
-
-		.article {
-			padding: 20px;
-			height: 350px;
-			max-height: 350px;
-		}
+	.front-page .article {
+		padding: 20px;
+		height: 350px;
+		max-height: 350px;
 	}
 }
