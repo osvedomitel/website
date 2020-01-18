@@ -9,29 +9,39 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style.css' %}" />
 </head>
 <body class="page-wrapper">
-	<div class="newspaper">
-		<header class="header">
-			<div class=" header__subtitle header__subtitle--left">
-				Новини отъ България.<br /> Издание съ мнѣние.
-			</div>
-	
-			<h1 class="header__title">
-				<a class="header__link" href="{% url "home" %}" title="Български освѣдомитель">Български освѣдомитель</a>
-			</h1>
-	
-			<div class="header__subtitle header__subtitle--right">
-				Разпространява се свободно въ Интернетъ.
-			</div>
-		</header>
-	
-		<nav class='navigation'>
+
+
+	<nav class='navigation'>
+		<div class='navigation__issues'>
+			<!-- <a class="navigation__item" href="{% url "all-issues" %}" title="Всички броеве">Текущ брой</a> -->
 			<a class="navigation__item" href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a>
+		</div>
+		<div class='navigation__categories'>
 			{% for cat in categories %}
-			<a class="navigation__item" href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a>
+			<a class="navigation__item navigation__category" href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a>
 			{% endfor %}
-		</nav>
-	
-		<main class='main'>{% block main %}{% endblock %}</main>
-	</div>
+		</div>
+	</nav>
+
+	<header class="header">
+		<h1 class="header__title">
+			<a class="header__link" href="{% url "home" %}" title="Български освѣдомитель">
+				<span>Български</span>
+				<br />
+				<span>освѣдомитель</span>
+			</a>
+		</h1>
+
+		<h2 class="header__subtitle">Новини отъ България. Издание съ мнѣние.</h2>
+		
+		<h3 class="header__date">20 януарий 2020</h3>
+		
+		<h4 class="header__issue">брой <span>4</span>&nbsp;&nbsp;&nbsp;година <span>1</span></h4>
+		
+		<h2 class="header__info">Разпространява се свободно въ Интернетъ.</h2>
+
+	</header>
+
+	<main class='main'>{% block main %}{% endblock %}</main>
 </body>
 </html>
