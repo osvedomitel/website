@@ -1,4 +1,29 @@
+/* fonts */
+
+@font-face {
+	font-family: "Old Standard TT";
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/OldStandardTT-Regular.otf');
+}
+
+@font-face {
+	font-family: "Old Standard TT";
+	font-style: normal;
+	font-weight: bold;
+	src: url('fonts/OldStandardTT-Bold.otf');
+}
+
+@font-face {
+	font-family: "Old Standard TT";
+	font-style: italic;
+	font-weight: normal;
+	src: url('fonts/OldStandardTT-Italic.otf');
+}
+
+
 p {
+	font-family: "Old Standard TT";
 	hyphens: manual;
 	text-align: justify;
 	text-indent: 40px;
