@@ -4,15 +4,16 @@ const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
 const csso = require('gulp-csso');
 const merge = require('merge-stream');
-
+const less = require('gulp-less');
 
 function css(cb) {
 	merge(
 		src('node_modules/normalize.css/normalize.css'),
-		src('src/*.css')
-			.pipe(autoprefixer())
+		src('src/*.less')
+			.pipe(less())
 	)
 		.pipe(concat('style.css'))
+		.pipe(autoprefixer())
 		.pipe(csso({
 			comments: false,
 			restructure: false
@@ -26,5 +27,5 @@ function css(cb) {
 exports.css = css;
 
 exports.default = function() {
-	watch('src/*.css', css);
+	watch('src/*.less', css);
 };
