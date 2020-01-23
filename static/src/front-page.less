@@ -1,0 +1,111 @@
+@import 'common.less';
+
+.page-wrapper {
+	box-sizing: border-box;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.front-page {
+	background-color: #dfe6ec;
+	display: grid;
+	grid-gap: 3px;
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: auto auto auto auto;
+}
+
+.article {
+	overflow: hidden;
+	padding: 30px;
+    background-color: white;
+
+    h2 {
+        font-size: 18px;
+        padding: 30px;
+    }
+    
+    p {
+        margin: 0;
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+.article__heading {
+	font-family: "sans-serif";
+	font-size: 22px;
+	margin: 10px 0;
+}
+
+.article__more {
+	float: right;
+}
+
+// newspaper style sections
+
+.zero {
+	grid-column: 1 / span 1;
+	grid-row: 1 / span 1;
+}
+
+.one {
+	grid-column: 2 / span 2;
+    grid-row: 1 / span 1;
+    
+    .article__heading {
+        font-size: 35px;
+    }
+}
+
+.two {
+	grid-column: 1 / span 1;
+	grid-row: 2 / span 2;
+}
+
+.three {
+	grid-column: 2 / span 1;
+	grid-row: 2 / span 1;
+}
+
+// .three .article__heading,
+// .four .article__heading {
+// 	background-color: #333;
+// 	color: white;
+// }
+
+.four {
+	grid-column: 2 / span 1;
+	grid-row: 3 / span 1;
+}
+
+.five {
+	grid-column: 3 / span 1;
+	grid-row: 2 / span 3;
+}
+
+.six {
+	grid-column: 2 / span 1;
+	grid-row: 4 / span 1;
+}
+
+.seven {
+	grid-column: 1 / span 1;
+	grid-row: 4 / span 1;
+	padding: 30px 50px;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+	.front-page {
+		display: flex;
+        flex-direction: column;
+        background-color: white;
+	}
+
+	.front-page .article {
+		padding: 20px;
+        max-width: 500px;
+        margin: 0 auto;
+	}
+}

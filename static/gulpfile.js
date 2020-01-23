@@ -9,7 +9,7 @@ const less = require('gulp-less');
 function css(cb) {
 	merge(
 		src('node_modules/normalize.css/normalize.css'),
-		src('src/*.less')
+		src('src/style.less')
 			.pipe(less())
 	)
 		.pipe(concat('style.css'))

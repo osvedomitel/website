@@ -7,19 +7,28 @@
 	<title>Български освѣдомитель – {% block title %}{% endblock %}</title>
 
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style.css' %}" />
+	<script type="text/javascript" src="{% static 'script.js' %}"></script>
 </head>
 <body class="page-wrapper">
 
 
 	<nav class='navigation'>
-		<div class='navigation__issues'>
-			<!-- <a class="navigation__item" href="{% url "all-issues" %}" title="Всички броеве">Текущ брой</a> -->
-			<a class="navigation__item" href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a>
-		</div>
-		<div class='navigation__categories'>
-			{% for cat in categories %}
-			<a class="navigation__item navigation__category" href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a>
-			{% endfor %}
+		<button
+			id='navigation-button'
+			class='navigation__button--mobile nodisplay'>
+			<img src="{% static 'images/menu.png' %}" />
+		</button>
+			<div
+				id='navigation-wrapper'
+				class='navigation__wrapper'>
+				<div class='navigation__issues'>
+					<a class="navigation__item" href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a>
+				</div>
+				<div class='navigation__categories'>
+				{% for cat in categories %}
+				<a class="navigation__item navigation__category" href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a>
+				{% endfor %}
+			</div>
 		</div>
 	</nav>
 
@@ -36,7 +45,7 @@
 		
 		<h3 class="header__date">20 януарий 2020</h3>
 		
-		<h4 class="header__issue">брой <span>4</span>&nbsp;&nbsp;&nbsp;година <span>1</span></h4>
+		<h4 class="header__issue">брой<span>&nbsp;4</span>&nbsp;&nbsp;&nbsp;година<span>1</span></h4>
 		
 		<h2 class="header__info">Разпространява се свободно въ Интернетъ.</h2>
 
