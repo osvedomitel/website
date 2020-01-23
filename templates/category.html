@@ -3,8 +3,8 @@
 {% block title %}Рубрики – {{ category.name }}{% endblock %}
 
 {% block main %}
-<article class="category">
-	<h1>Статии от рубриката „{{ category.name }}“</h1>
+<article class="page page__category">
+	<h1 class='page__heading'>Статии от рубриката „{{ category.name }}“</h1>
 	{% include "includes/list_of_articles.html" %}
 </article>
 {% endblock %}

@@ -3,8 +3,8 @@
 {% block title %}Всички броеве{% endblock %}
 
 {% block main %}
-<section class="issue-list">
-	<h1>Всички броеве</h1>
+<section class="page page__issues">
+	<h1 class='page__heading'>Всички броеве</h1>
 	<ul>
 		{% for issue in issues %}
 		<li><a href="{% url "issue" issue.published.year issue.published.month %}" title="{{ issue.name }}">{{ issue.name }}</a></li>

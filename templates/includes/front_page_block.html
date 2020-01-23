@@ -1,5 +1,5 @@
 {% load orthography restructuredtext %}
-<article class="{{ classes }} article" >
+<article class="{{ classes }} article__text" >
 	<h1 class='article__title'>{{ article.title }}</h1>
 	{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
 	{{ article.text | add_soft_hyphens | rest2html | truncatewords_html:article.truncate_after }}

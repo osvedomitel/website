@@ -5,37 +5,45 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block main %}
-<article class="article">
-	<h1>{{ article.title }}</h1>
-	{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
+<article class="page page__article">
 
-	{{ article.text | add_soft_hyphens | rest2html }}
+	<h1 class='article__title'>{{ article.title }}</h1>
 
-	{% if article.authors.exists %}
-	<section class="authors">
-		{% for author in article.authors.all %}
-		<span>{{ author.get_full_name }}</span>
-		{% endfor %}
+	<section class='article__main'>
+		<article class='article__text'>
+			{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
+
+			{{ article.text | add_soft_hyphens | rest2html }}
+		</article>
+
+		<aside class='article__aside'>
+			{% if article.authors.exists %}
+			<section class="article__section section__authors">
+				{% for author in article.authors.all %}
+				<span>{{ author.get_full_name }}</span>
+				{% endfor %}
+			</section>
+			{% endif %}
+		
+			<section class="article__section section__issue">
+				Публикувано въ <br />
+				<a href="{{ article.issue.get_absolute_url }}" title="{{ article.issue.name }}">{{ article.issue.name }}</a>
+			</section>
+		
+			<section class="article__section section__category">
+				Рубрика:
+				<a href="{{ article.category.get_absolute_url }}" title="{{ article.category.name }}">{{ article.category.name }}</a>
+			</section>
+		
+			{% if article.keywords.exists %}
+			<section class="article__section section__keywords">
+				Ключови думи:
+				{% for keyword in article.keywords.all %}
+				<a href="{{ keyword.get_absolute_url }}" class='keywords__keyword' title="{{ keyword.keyword }}">{{ keyword.keyword }}</a>
+				{% endfor %}
+			</section>
+			{% endif %}
+		</aside>
 	</section>
-	{% endif %}
-
-	<section class="issue">
-		Публикувано въ
-		<a href="{{ article.issue.get_absolute_url }}" title="{{ article.issue.name }}">{{ article.issue.name }}</a>
-	</section>
-
-	<section class="category">
-		Рубрика:
-		<a href="{{ article.category.get_absolute_url }}" title="{{ article.category.name }}">{{ article.category.name }}</a>
-	</section>
-
-	{% if article.keywords.exists %}
-	<section class="keywords">
-		Ключови думи:
-		{% for keyword in article.keywords.all %}
-		<a href="{{ keyword.get_absolute_url }}" title="{{ keyword.keyword }}">{{ keyword.keyword }}</a>
-		{% endfor %}
-	</section>
-	{% endif %}
 </article>
 {% endblock %}

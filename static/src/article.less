@@ -1,0 +1,81 @@
+@import 'common.less';
+
+.page__article {
+    background-color: white;
+
+    .article__main {
+        display: flex;
+        padding: 20px 0;
+    }
+    
+    .article__aside {
+        border-left: 10px solid lighten(@purple, 15%);
+        background-color: @light-blue;
+        padding: 30px;
+        margin: 0 0 0 60px;
+        min-width: 220px;
+        width: 220px;
+        height: auto;
+        align-self: flex-start;
+    }
+
+    .article__section {
+        margin: 20px 0;
+        font-size: 18px;
+    }
+
+    .article__text {
+        
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .section__authors {
+        color: @dark-grey;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 30px 0;
+
+        span {
+            display: block;
+        }
+    }
+
+    .section__issue {
+        text-decoration: none;
+    }
+
+    .section__keywords {
+
+    }
+
+    .keywords__keyword {
+        text-decoration: none;
+        padding: 3px;
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .page__article {
+    
+        .article__main {
+            flex-direction: column;
+        }
+    
+        .article__aside {
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+    }
+}

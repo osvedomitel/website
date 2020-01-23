@@ -1,7 +1,6 @@
 @import 'common.less';
 
 .page-wrapper {
-	box-sizing: border-box;
 	max-width: 1400px;
 	margin: 0 auto;
 }
@@ -12,28 +11,31 @@
 	grid-gap: 3px;
 	grid-template-columns: 4fr 7fr 3fr;
 	grid-template-rows: auto auto auto auto;
-}
 
-.article {
-	overflow: hidden;
-	padding: 30px;
-    background-color: white;
-
-    h2 {
-		border-left: 10px solid lighten(@purple, 15%);
-		font-size: 20px;
-		color: @dark-grey;
-		font-family: 'Times New Roman', serif;
+	.article__text {
 		padding: 30px;
-		margin: 20px 0;
-    }
-    
-    p {
-		color: @dark-grey;
-        margin: 0;
-        font-size: 18px;
-        line-height: 24px;
-    }
+		background-color: white;
+		
+		h1 {
+			font-size: 24px;
+		}
+
+		h2 {
+			border-left: 10px solid lighten(@purple, 15%);
+			font-size: 20px;
+			color: @dark-grey;
+			font-family: 'Times New Roman', serif;
+			padding: 30px;
+			margin: 20px 0;
+		}
+		
+		p {
+			color: @dark-grey;
+			margin: 0;
+			font-size: 18px;
+			line-height: 24px;
+		}
+	}
 }
 
 .article__title {
