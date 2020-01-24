@@ -75,14 +75,25 @@
 @media screen and (max-width: 1200px) {
 
     .header {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 160px auto;
+        grid-template-rows: auto auto;
+    }
+
+    .header__subtitle {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
     }
 
     .header__date {
-        grid-column: 4 /span 1;
+        grid-column: 1 /span 1;
         grid-row: 2 / span 1;
-        text-align: right;
+        text-align: left;
+    }
+
+    .header__issue {
+        grid-column: 2 /span 1;
+        grid-row: 2 / span 1;
+        text-align: left;
     }
 }
 
@@ -100,15 +111,16 @@
     .header__date,
     .header__issue {
         font-size: 18px;
-        margin: 10px 0 0 0;
-    }
-
-    .header__date {
-        margin: 25px 0 0 0;
     }
 }
 
 @media screen and (max-width: 740px) {
+
+    .header {
+        display: flex;
+        flex-direction: column
+    }
+
     .header__date,
     .header__issue {
         font-size: 18px;
