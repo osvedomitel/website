@@ -3,7 +3,7 @@
 .header {
     background-color: @purple;
     display: grid;
-    grid-template-columns: 60px auto 60px auto auto;
+    grid-template-columns: 60px auto 60px auto 60px;
     grid-template-rows: auto auto;
     padding: 20px;
     grid-gap: 20px;
@@ -23,7 +23,7 @@
     grid-column: 4 /span 1;
     grid-row: 1 / span 1;
     color: white;
-	font-size: 20px;
+	font-size: 18px;
     font-weight: 400;
     text-align: right;
     
@@ -36,7 +36,6 @@
     span:nth-child(2) {
         font-weight: 700;
         font-size: 20px;
-        margin-left: 10px;
         font-style: normal;
     }
 }
@@ -56,6 +55,7 @@
 
     &--mobile {
         margin-left: 10px;
+        font-size: 22px;
     }
 
     &.nodisplay {
@@ -75,25 +75,22 @@
 @media screen and (max-width: 1200px) {
 
     .header {
-        grid-template-columns: 160px auto;
-        grid-template-rows: auto auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .header__subtitle {
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 1;
-    }
-
-    .header__date {
-        grid-column: 1 /span 1;
-        grid-row: 2 / span 1;
-        text-align: left;
+        text-align: center;
     }
 
     .header__issue {
-        grid-column: 2 /span 1;
-        grid-row: 2 / span 1;
-        text-align: left;
+        margin: 20px 0 0 0;
+        font-size: 16px;
+    }
+
+    .header__link {
+        font-size: 24px;
     }
 }
 
@@ -101,34 +98,29 @@
 @media screen and (max-width: 960px) {
 
     .header__link {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .header__subtitle {
         font-size: 18px;
     }
 
-    .header__date,
     .header__issue {
         font-size: 18px;
+        line-height: 18px;
+        font-style: normal;
     }
 }
 
 @media screen and (max-width: 740px) {
 
     .header {
-        display: flex;
-        flex-direction: column
+        grid-template-columns: 160px auto;
+        grid-template-rows: auto auto;
     }
 
-    .header__date,
     .header__issue {
-        font-size: 18px;
-        text-align: left;
-        margin: 10px 0 0 0;
-    }
-
-    .header__date {
-        margin: 25px 0 0 0;
+        font-size: 14px;
+        margin: 0;
     }
 }
