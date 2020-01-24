@@ -1,20 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    init();
+    initScript();
 });
 
-const init = () => {
+const initScript = () => {
     const navigationButton = document.querySelector('#navigation-button');
     const navigation = document.querySelector('#navigation-wrapper');
     const navItems = document.querySelectorAll('.navigation__item');
+    const titleMobile = document.querySelector('#header-title--mobile');
+    const titleDesktop = document.querySelector('#header-title--desktop');
 
     const setMobile = () => {
         navigationButton.classList.remove('nodisplay');
         navigation.classList.add('nodisplay');
+        titleDesktop.classList.add('nodisplay');
+        titleMobile.classList.remove('nodisplay');
     };
 
     const setDesktop = () => {
         navigationButton.classList.add('nodisplay');
         navigation.classList.remove('nodisplay');
+        titleDesktop.classList.remove('nodisplay');
+        titleMobile.classList.add('nodisplay');
     };
 
     const showNav = () => {

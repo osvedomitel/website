@@ -5,12 +5,23 @@
 
     .article__main {
         display: flex;
-        padding: 20px 0;
+        padding: 0 0 20px 0;
+    }
+
+    .article__title {
+        max-width: 740px;
+        margin: 20px auto;
+        max-width: 960px;
+    }
+
+    .article__text {
+        max-width: 740px;
+        margin: 0 auto;
     }
     
     .article__aside {
         border-left: 10px solid lighten(@purple, 15%);
-        background-color: @light-blue;
+        background-color: lighten(@purple, 45%);
         padding: 30px;
         margin: 0 0 0 60px;
         min-width: 220px;
@@ -75,6 +86,21 @@
             width: 100%;
             display: flex;
             flex-direction: row;
+        }
+
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    .page__article {
+
+        .article__title {
+            max-width: 740px;
+        }
+    
+        .article__aside {
+            flex-direction: column;
         }
 
     }

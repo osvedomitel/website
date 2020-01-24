@@ -3,10 +3,15 @@
     padding: 50px 20px;
     margin: 0 auto;
 
+    .page__heading {
+        color: @purple;
+        font-size: 30px;
+    }
+
     .article__title {
         color: @dark-grey;
         font-family: "sans-serif";
-        font-size: 30px;
+        font-size: 24px;
         margin: 20px 0;
     }
 
@@ -29,11 +34,28 @@
     }
 }
 
-.page__heading {
-    margin: 30px 0;
-    font-size: 30px;
+.list__articles {
+
+    .article__text {
+        padding: 10px 0 25px 0;
+        margin: 50px 0 0 0;
+
+        &:nth-child(1) {
+            margin: 10px 0 0 0;
+        }
+    }
 }
 
-.articles__article {
-    margin: 50px 0;
+@media screen and (max-width: 1200px) {
+
+    .list__articles {
+
+        .article__text {
+            border-top: 3px solid lighten(@purple, 45%);
+
+            &:nth-child(1) {
+                border: none;
+            }
+        }
+    }
 }

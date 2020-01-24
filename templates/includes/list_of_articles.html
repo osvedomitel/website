@@ -2,11 +2,13 @@
 
 <section class="list__articles">
 	{% for article in articles %}
-	<article class='articles__article'>
-		<h1 class='article__title'>{{ article.title }}</h1>
+	<article class='article__text'>
+		<h1 class='article__title'>
+			<a href="{{ article.get_absolute_url }}" title="{{ article.title }}">{{ article.title }}</a>
+		</h1>
 		{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
 		{{ article.text | add_soft_hyphens | rest2html | truncatewords_html:article.truncate_after }}
-		<a href="{{ article.get_absolute_url }}" title="{{ article.title }}">Прочети още</a>
+		<a href="{{ article.get_absolute_url }}" class='article__more' title="{{ article.title }}">Прочети още</a>
 	</article>
 	{% endfor %}
 </section>

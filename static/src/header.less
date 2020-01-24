@@ -1,42 +1,41 @@
 @import 'common.less';
 
 .header {
-	background-color: @purple;
-	display: grid;
-	grid-template-columns: 120px auto auto 220px;
-	grid-template-rows: auto auto auto;
-	grid-gap: 40px;
-	padding: 30px 30px 0 30px;
+    background-color: @purple;
+    display: grid;
+    grid-template-columns: 60px auto 60px auto auto;
+    grid-template-rows: auto auto;
+    padding: 20px;
+    grid-gap: 20px;
 }
 
 .header__date {
+    grid-column: 5 /span 1;
+    grid-row: 1 / span 1;
+	font-family: "OS TT";
     color: white;
-	grid-column: 1 / span 1;
-	grid-row: 1 / span 1;
-	text-align: right;
-	margin: 20px 20px 20px 0;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: italic;
 }
 
 .header__issue {
+    grid-column: 4 /span 1;
+    grid-row: 1 / span 1;
     color: white;
-	font-family: '';
-	grid-column: 4 / span 1;
-	grid-row: 1 / span 1;
-	text-align: right;
 	font-size: 20px;
-	font-weight: 400;
-	margin: 20px 0;
-    font-style: italic;
+    font-weight: 400;
+    text-align: right;
     
     span:nth-child(1) {
         font-weight: 700;
-        font-size: 60px;
+        font-size: 20px;
         font-style: normal;
     }
 
     span:nth-child(2) {
         font-weight: 700;
-        font-size: 25px;
+        font-size: 20px;
         margin-left: 10px;
         font-style: normal;
     }
@@ -44,106 +43,80 @@
 
 .header__subtitle {
     color: white;
-	grid-column: 2 / span 1;
-	grid-row: 2 / span 1;
-	margin: 20px 0 0 0; 
     font-weight: normal;
     font-size: 20px;
-	font-style: italic;
+    font-style: italic;
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
 }
 
 .header__title {
     margin: 0;
-	grid-column: 2 / span 1;
-	grid-row: 1 / span 1;
-	// text-decoration: underline;
+    grid-column: 2 / span 1;
+
+    &--mobile {
+        margin-left: 10px;
+    }
+
+    &.nodisplay {
+        display: none;
+    }
 }
 
 .header__link {
     color: white;
 	font-family: "OS TT";
 	font-weight: normal;
-	font-size: 65px;
+	font-size: 35px;
 	text-decoration: none;
-    line-height: 65px;
-    
-    span:nth-child(1) {
-        font-size: 45px;
-        line-height: 45px;
-        font-weight: bold;
+    line-height: 35px;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .header {
+        display: flex;
+        flex-direction: column;
     }
-}
 
-.header__info {
-    color: white;
-	grid-row: 2 / span 1;
-	grid-column: 4 / span 1;
-	font-size: 16px;
-	font-weight: normal;
-	text-align: right;
-	margin: 20px 0 0 0;
-}
-
-@media screen and (max-width: 1024px) {
-
-    .header__link {
-        font-size: 50px;
-        line-height: 50px;
-        
-        span:nth-child(1) {
-            font-size: 40px;
-            font-weight: bold;
-        }
+    .header__date {
+        grid-column: 4 /span 1;
+        grid-row: 2 / span 1;
+        text-align: right;
     }
 }
 
 
 @media screen and (max-width: 960px) {
 
+    .header__link {
+        font-size: 22px;
+    }
+
     .header__subtitle {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .header__date,
+    .header__issue {
+        font-size: 18px;
+        margin: 10px 0 0 0;
     }
 
     .header__date {
-        text-align: left;
-    }
-
-    .header__issue {
-        font-weight: 400;
-        margin: 20px 0;
-        font-style: italic;
-        text-align: left;
-        
-        span:nth-child(1) {
-            font-size: 50px;
-        }
-    
-        span:nth-child(2) {
-            font-size: 25px;
-        }
-    }
-
-    .header__info {
-        text-align: left;
+        margin: 25px 0 0 0;
     }
 }
 
 @media screen and (max-width: 740px) {
-
-    .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
+    .header__date,
+    .header__issue {
+        font-size: 18px;
+        text-align: left;
+        margin: 10px 0 0 0;
     }
 
-    .header__link {
-        font-size: 40px;
-        line-height: 40px;
-        
-        span:nth-child(1) {
-            font-size: 30px;
-            font-weight: bold;
-        }
+    .header__date {
+        margin: 25px 0 0 0;
     }
 }

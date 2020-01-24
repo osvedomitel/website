@@ -43,6 +43,15 @@
 	font-family: "sans-serif";
 	font-size: 22px;
 	margin: 20px 0;
+
+	a {
+		text-decoration: none;
+		color: @dark-grey;
+
+		&:hover {
+			color: @purple;
+		}
+	}
 }
 
 .article__more {
@@ -61,7 +70,10 @@
     grid-row: 1 / span 1;
     
     .article__title {
-        font-size: 35px;
+
+		a {
+			font-size: 35px;
+		}
     }
 }
 
@@ -121,14 +133,15 @@
 		background-color: white;
 		padding: 0 20px;
 		
-		.article {
-			border-top: 3px solid @dark-grey;
-			padding: 10px 0;
+		.article__text {
+			border-top: 3px solid lighten(@purple, 45%);
+			padding: 10px 0 25px 0;
 			max-width: 650px;
 			margin: 0 auto;
 
 			&:nth-child(1) {
 				border: none;
+				margin: 30px auto 0 auto;
 			}
 		}
 	}
