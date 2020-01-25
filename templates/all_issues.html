@@ -7,7 +7,7 @@
 	<h1 class='page__heading'>Всички броеве</h1>
 	<ul>
 		{% for issue in issues %}
-		<li><a href="{% url "issue" issue.published.year issue.published.month %}" title="{{ issue.name }}">{{ issue.name }}</a></li>
+		<li><a href="{% url "issue" issue.published.year issue.published.month %}" class="issues__issue" title="{{ issue.name }}">{{ issue.name }}</a></li>
 		{% endfor %}
 	</ul>
 </section>
