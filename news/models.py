@@ -98,9 +98,12 @@ class Issue(models.Model):
         return reverse('issue', args=[year, month])
 
     @property
+    def volume(self):
+        return self.published.year - 2018
+
+    @property
     def name(self):
-        volume = self.published.year - 2018
-        return 'Брой {}, година {}'.format(self.number, volume)
+        return 'Брой {}, година {}'.format(self.number, self.volume)
 
 
 """
