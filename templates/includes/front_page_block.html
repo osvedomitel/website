@@ -4,6 +4,8 @@
 		<a href="{{ article.get_absolute_url }}" title="{{ article.title }}">{{ article.title }}</a>
 	</h1>
 	{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
-	{{ article.text | add_soft_hyphens | rest2html | truncatewords_html:article.truncate_after }}
-	<a href="{{ article.get_absolute_url }}" title="{{ article.title }}" class="article__more">Прочети още</a>
+	<div class='article__excerpt'>
+		{{ article.text | add_soft_hyphens | rest2html | truncatewords_html:article.truncate_after }}
+		<a href="{{ article.get_absolute_url }}" title="{{ article.title }}" class="article__more">Прочети още</a>
+	</div>
 </article>

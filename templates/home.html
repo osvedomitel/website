@@ -6,8 +6,8 @@
 
 {% block main %}
 <article class="issue front-page">
-	{% include "includes/front_page_block.html" with article=issue.blocks.0 classes="zero" %}
 	{% include "includes/front_page_block.html" with article=issue.blocks.1 classes="one" %}
+	{% include "includes/front_page_block.html" with article=issue.blocks.0 classes="zero" %}
 	{% include "includes/front_page_block.html" with article=issue.blocks.2 classes="two" %}
 	{% include "includes/front_page_block.html" with article=issue.blocks.3 classes="three" %}
 	{% include "includes/front_page_block.html" with article=issue.blocks.4 classes="four" %}
