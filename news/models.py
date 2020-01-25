@@ -12,7 +12,9 @@ taxonomy
 
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name='име')
-    slug = models.SlugField(allow_unicode=True, verbose_name='охлюв')
+    slug = models.SlugField(
+        allow_unicode=True, unique=True, verbose_name='охлюв'
+    )
     order = models.PositiveSmallIntegerField(verbose_name='пореден номер')
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
@@ -34,7 +36,9 @@ class Category(models.Model):
 
 class Keyword(models.Model):
     keyword = models.CharField(max_length=50, verbose_name='ключова дума')
-    slug = models.SlugField(allow_unicode=True, verbose_name='охлюв')
+    slug = models.SlugField(
+        allow_unicode=True, unique=True, verbose_name='охлюв'
+    )
     order = models.PositiveSmallIntegerField(verbose_name='пореден номер')
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
