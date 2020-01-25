@@ -13,29 +13,9 @@
 	grid-template-rows: auto auto auto auto;
 
 	.article__text {
-		padding: 30px;
 		background-color: white;
-		
-		h1 {
-			font-size: 24px;
-			font-family: 'Times New Roman', serif;
-		}
-
-		h2 {
-			border-left: 10px solid lighten(@purple, 15%);
-			font-size: 18px;
-			color: @dark-grey;
-			font-family: 'Times New Roman', serif;
-			padding: 0 20px;
-			margin: 20px 0;
-		}
-		
-		p {
-			color: @dark-grey;
-			margin: 0;
-			font-size: 18px;
-			line-height: 24px;
-		}
+		padding: 0 20px;
+		max-width: 100%;	
 	}
 }
 
@@ -55,12 +35,7 @@
 	}
 }
 
-.article__more {
-	float: right;
-}
-
-// newspaper style sections
-
+// newspaper style section
 .zero {
 	grid-column: 1 / span 1;
 	grid-row: 1 / span 1;
@@ -71,7 +46,6 @@
     grid-row: 1 / span 1;
     
     .article__title {
-
 		a {
 			font-size: 35px;
 		}
@@ -133,22 +107,17 @@
         flex-direction: column;
 		background-color: white;
 		padding: 0 20px;
-		
+		max-width: 860px;
+		margin: 0 auto;
+	
 		.article__text {
-			border-top: 3px solid lighten(@purple, 45%);
-			padding: 10px 0 25px 0;
-			max-width: 650px;
-			margin: 0 auto;
+			border-top: 3px solid @light-blue;
+			padding: 0;
 
 			&:nth-child(1) {
 				border: none;
-				margin: 30px auto 0 auto;
 			}
 		}
-	}
-
-	.article__more {
-		margin: 20px 0;
 	}
 
 	.article__title {
