@@ -9,7 +9,7 @@ const less = require('gulp-less');
 function css(cb) {
 	merge(
 		src('node_modules/normalize.css/normalize.css'),
-		src('src/style.less')
+		src('src/less/style.less')
 			.pipe(less())
 	)
 		.pipe(concat('style.css'))
@@ -23,9 +23,19 @@ function css(cb) {
 	cb();
 };
 
+function js(cb) {
+	src('src/js/*.js')
+		.pipe(concat('script.js'))
+		.pipe(dest('dist'));
+
+	cb();
+};
+
 
 exports.css = css;
+exports.js = js;
 
 exports.default = function() {
-	watch('src/*.less', css);
+	watch('src/less/*.less', css);
+	watch('src/js/*.js', js);
 };
