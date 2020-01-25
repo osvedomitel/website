@@ -17,12 +17,12 @@
 
     // subtitle (from the admin)
     h2 {
-		border-left: 10px solid lighten(@purple, 15%);
-		font-size: 20px;
-		color: @dark-grey;
-		font-family: 'Times New Roman', serif;
-		padding: 30px;
-		margin: 20px 0;
+        border-left: 10px solid lighten(@purple, 15%);
+        font-size: 18px;
+        color: @dark-grey;
+        font-family: 'Times New Roman', serif;
+        padding: 0 20px;
+        margin: 20px 0;
     }
     
     // article text
@@ -39,9 +39,11 @@
     .article__text {
         padding: 10px 0 25px 0;
         margin: 50px 0 0 0;
+        border-top: 3px solid lighten(@purple, 45%);
 
         &:nth-child(1) {
             margin: 10px 0 0 0;
+            border: none;
         }
     }
 }
