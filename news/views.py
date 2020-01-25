@@ -39,17 +39,27 @@ def article(request, year, month, slug):
 
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
+
+    articles = category.article_set \
+                    .filter(issue__online=True) \
+                    .order_by('-issue__published', 'order')
+
     context = {
         'category': category,
-        'articles': category.article_set.all()
+        'articles': articles
     }
     return render(request, 'category.html', context)
 
 
 def keyword(request, slug):
     keyword = get_object_or_404(Keyword, slug=slug)
+
+    articles = keyword.article_set \
+                    .filter(issue__online=True) \
+                    .order_by('-issue__published', 'order')
+
     context = {
         'keyword': keyword,
-        'articles': keyword.article_set.all()
+        'articles': articles
     }
     return render(request, 'keyword.html', context)
