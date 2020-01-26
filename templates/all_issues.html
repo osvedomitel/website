@@ -1,5 +1,7 @@
 {% extends "extends/base.html" %}
 
+{% load orthography %}
+
 {% block title %}Всички броеве{% endblock %}
 
 {% block main %}
@@ -7,7 +9,11 @@
 	<h1 class='page__heading'>Всички броеве</h1>
 	<ul>
 		{% for issue in issues %}
-		<li><a href="{% url "issue" issue.published.year issue.published.month %}" class="issues__issue" title="{{ issue.name }}">{{ issue.name }}</a></li>
+		<li>
+			<a href="{% url "issue" issue.published.year issue.published.month %}" class="issues__issue" title="{{ issue.name }}">
+				{{ issue.name }} ({{ issue.published | date_ivanchov }})
+			</a>
+		</li>
 		{% endfor %}
 	</ul>
 </section>
