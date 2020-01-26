@@ -46,13 +46,12 @@ const initScript = () => {
     });
 
     navItems.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', e => {
             hideNav();
         })
-    })
+    });
 
     menuButton.addEventListener('click', () => {
-
         if (navigation.classList.contains('nodisplay')) {
             showNav();
         } else {

@@ -31,11 +31,13 @@ function js(cb) {
 	cb();
 };
 
-
 exports.css = css;
 exports.js = js;
 
+exports.build = parallel(js, css);
+
 exports.default = function() {
-	watch('src/less/*.less', css);
-	watch('src/js/*.js', js);
+	watch('src/less/*.less', { ignoreInitial: false }, css);
+	watch('src/js/*.js', { ignoreInitial: false }, js);
 };
+
