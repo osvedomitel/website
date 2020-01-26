@@ -24,17 +24,22 @@
 				{% endfor %}
 			</section>
 			{% endif %}
-		
+
+			<section class="article__section section__issue">
+				Публикувано на <br />
+				<p class='date'>{{ article.issue.published | date_ivanchov }}</p>
+			</section>
+
 			<section class="article__section section__issue">
 				Публикувано въ <br />
 				<a href="{{ article.issue.get_absolute_url }}" title="{{ article.issue.name }}">{{ article.issue.name }}</a>
 			</section>
-		
+
 			<section class="article__section section__category">
 				Рубрика:
 				<a href="{{ article.category.get_absolute_url }}" title="{{ article.category.name }}">{{ article.category.name }}</a>
 			</section>
-		
+
 			{% if article.keywords.exists %}
 			<section class="article__section section__keywords">
 				Ключови думи:

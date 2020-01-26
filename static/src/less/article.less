@@ -41,14 +41,20 @@
     .section__category {
         text-decoration: none;
 
-        a {
+        a, p {
             margin: 5px 0;
-            color: @dark-grey;
             font-family: Tinos, serif;
             text-decoration: none;
             text-transform: lowercase;
-            color: @purple;
             display: block;
+        }
+
+        p {
+            color: @dark-grey;
+        }
+
+        a {
+            color: @purple;
 
             &:hover {
                 font-weight: bold;
