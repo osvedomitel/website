@@ -2,9 +2,13 @@
 
 {% block title %}Рубрики – {{ category.name }}{% endblock %}
 
+{% block head %}
+<meta name="description" content="Списъкъ на всички статии отъ рубриката „{{ category.name }}“." />
+{% endblock %}
+
 {% block main %}
 <article class="page page__category">
-	<h1 class='page__heading'>Статии от рубриката „{{ category.name }}“</h1>
+	<h1 class='page__heading'>Статии отъ рубриката „{{ category.name }}“</h1>
 	{% include "includes/list_of_articles.html" %}
 </article>
 {% endblock %}

@@ -4,9 +4,13 @@
 
 {% block title %}Всички броеве{% endblock %}
 
+{% block head %}
+<meta name="description" content="Списъкъ на всички издадени броеве." />
+{% endblock %}
+
 {% block main %}
 <section class="page page__issues">
-	<h1 class='page__heading'>Всички броеве</h1>
+	<h1 class='page__heading'>Всички издадени броеве</h1>
 	<ul>
 		{% for issue in issues %}
 		<li>

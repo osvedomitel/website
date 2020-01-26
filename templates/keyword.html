@@ -2,9 +2,13 @@
 
 {% block title %}Ключови думи – {{ keyword.keyword }}{% endblock %}
 
+{% block head %}
+<meta name="description" content="Списъкъ на всички статии отбелѣзани съ ключовата дума „{{ keyword.keyword }}“." />
+{% endblock %}
+
 {% block main %}
 <article class="page page__keyword">
-	<h1 class='page__heading'>Статии отбелѣзани с ключова дума „{{ keyword.keyword }}“</h1>
+	<h1 class='page__heading'>Статии отбелѣзани съ ключовата дума „{{ keyword.keyword }}“</h1>
 	{% include "includes/list_of_articles.html" %}
 </article>
 {% endblock %}

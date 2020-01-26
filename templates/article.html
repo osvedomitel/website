@@ -4,6 +4,14 @@
 
 {% block title %}{{ article.title }}{% endblock %}
 
+{% block head %}
+<meta name="description" content="{{ article.text | truncatewords:40 }}" />
+<meta name="keywords" content="{{ article.keywords.all | join:"," }}" />
+{% for author in article.authors.all %}
+<meta name="author" content="{{ author.get_full_name }}" />
+{% endfor %}
+{% endblock %}
+
 {% block main %}
 <article class="page page__article">
 

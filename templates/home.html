@@ -4,6 +4,10 @@
 
 {% block title %}{{ issue.name }}{% endblock %}
 
+{% block head %}
+<meta name="description" content="Начална страница. {{ issue.name }}, публикуванъ на {{ issue.published | date_ivanchov }}." />
+{% endblock %}
+
 {% block main %}
 <article class="issue front-page">
 	{% include "includes/front_page_block.html" with article=issue.blocks.1 classes="one" %}

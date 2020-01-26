@@ -1,10 +1,16 @@
 {% extends "extends/base.html" %}
 
+{% load orthography %}
+
 {% block title %}{{ issue.name }}{% endblock %}
+
+{% block head %}
+<meta name="description" content="Списъкъ на статиите отъ {{ issue.name | lower }}, публикуванъ на {{ issue.published | date_ivanchov }}." />
+{% endblock %}
 
 {% block main %}
 <article class="page page__issue">
-	<h1 class='page__heading'>Статии от {{ issue.name | lower }}</h1>
+	<h1 class='page__heading'>Статии отъ {{ issue.name | lower }} ({{ issue.published | date_ivanchov }})</h1>
 	{% include "includes/list_of_articles.html" %}
 </article>
 {% endblock %}
