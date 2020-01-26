@@ -1,15 +1,20 @@
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, register_converter
 
 import news.views
+from project import converters
+
+
+register_converter(converters.YearConverter, 'yyyy')
+register_converter(converters.MonthConverter, 'mm')
 
 
 urlpatterns = [
     path('', news.views.home, name='home'),
-    path('<int:year>/<int:month>/', news.views.issue, name='issue'),
-    path('<int:year>/<int:month>/<str:slug>/', news.views.article, name='article'),
+    path('<yyyy:year>/<mm:month>/', news.views.issue, name='issue'),
+    path('<yyyy:year>/<mm:month>/<str:slug>/', news.views.article, name='article'),
     path('броеве/', news.views.all_issues, name='all-issues'),
     path('рубрики/<str:slug>/', news.views.category, name='category'),
     path('ключови-думи/<str:slug>/', news.views.keyword, name='keyword'),
