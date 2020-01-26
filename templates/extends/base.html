@@ -31,11 +31,13 @@
 			id='navigation-wrapper'
 			class='navigation__wrapper'>
 			<div class='navigation__issues'>
-				<a class="navigation__item" href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a>
+				<a class="navigation__item {% if active_nav_item == 'all_issues' %}active{% endif %}" href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a>
 			</div>
 			<div class='navigation__categories'>
 				{% for cat in categories %}
-				<a class="navigation__item navigation__category" href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">{{ cat.name }}</a>
+				<a class="navigation__item navigation__category {% if active_nav_item == cat.slug %}active{% endif %}" href="{{ cat.get_absolute_url }}" title="{{ cat.name }}">
+					{{ cat.name }}
+				</a>
 				{% endfor %}
 			</div>
 		</div>
