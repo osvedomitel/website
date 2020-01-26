@@ -41,7 +41,7 @@ const initScript = () => {
 
     handleResize();
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', () => {
         handleResize();
     });
 
@@ -49,10 +49,9 @@ const initScript = () => {
         item.addEventListener('click', () => {
             hideNav();
         })
-    })
+    });
 
     menuButton.addEventListener('click', () => {
-
         if (navigation.classList.contains('nodisplay')) {
             showNav();
         } else {

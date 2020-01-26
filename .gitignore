@@ -14,7 +14,8 @@ db.sqlite
 *.swp
 
 # static files
-/static/dist/*.css
+/static/dist/style.css
+/static/dist/script.js
 /static/node_modules/*
 
 # media files
