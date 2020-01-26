@@ -24,7 +24,11 @@ def issue(request, year, month):
 
 def all_issues(request):
     issues = Issue.objects.filter(online=True).order_by('-published')
-    return render(request, 'all_issues.html', {'issues': issues})
+    context = {
+        'issues': issues,
+        'active_nav_item': 'all_issues'
+    }
+    return render(request, 'all_issues.html', context)
 
 
 def article(request, year, month, slug):
@@ -46,7 +50,8 @@ def category(request, slug):
 
     context = {
         'category': category,
-        'articles': articles
+        'articles': articles,
+        'active_nav_item': category.slug
     }
     return render(request, 'category.html', context)
 
