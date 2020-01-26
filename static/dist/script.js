@@ -41,12 +41,12 @@ const initScript = () => {
 
     handleResize();
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', () => {
         handleResize();
     });
 
     navItems.forEach(item => {
-        item.addEventListener('click', e => {
+        item.addEventListener('click', () => {
             hideNav();
         })
     });
