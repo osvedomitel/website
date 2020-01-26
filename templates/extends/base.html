@@ -1,4 +1,4 @@
-{% load static %}<!DOCTYPE html>
+{% load orthography static %}<!DOCTYPE html>
 <html lang="bg-ivanchov">
 <head>
 	<meta charset="utf-8" />
@@ -53,7 +53,7 @@
 		<h2 class="header__subtitle">Новини отъ България. Издание съ мнѣние.</h2>
 
 		<h3 class="header__issue">
-			{{ current_issue.published | date:"j b Y" }} | година <span>{{ current_issue.volume }}</span>, брой <span>{{ current_issue.number }}</span>
+			{{ current_issue.published | date_ivanchov }} | година <span>{{ current_issue.volume }}</span>, брой <span>{{ current_issue.number }}</span>
 		</h3>
 	</header>
 
