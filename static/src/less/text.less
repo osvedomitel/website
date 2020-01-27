@@ -25,12 +25,27 @@
         margin: 20px 0;
     }
 
+    p, div {
+        font-size: 18px;
+        color: @darkest-grey;
+        font-family: 'OS TT', serif;
+    }
+
     p {
         margin: 0;
         line-height: 22px;
-        font-size: 18px;
-        color: @dark-grey;
-        font-family: 'OS TT', serif;
+    }
+
+    div.line-block {
+        text-indent: 40px;
+    }
+
+    p + .line-block, .line-block + p {
+        margin-top: 20px;
+    }
+
+    .line-block + p {
+        text-indent: 0;
     }
 
     .section {
@@ -38,6 +53,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             margin: 0 0 7px 0;
+            color: @dark-grey;
             font-family: 'Fira Sans Condensed', sans-serif;
         }
     }
