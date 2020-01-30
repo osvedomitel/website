@@ -5,6 +5,10 @@
 	<article class='article__text'>
 		<h1 class='article__title'>
 			<a href="{{ article.get_absolute_url }}" title="{{ article.title }}">{{ article.title }}</a>
+			{% if article.authors.exists %}
+			<br/>
+			<span class='article__author'>{{ article.authors.first.get_full_name }}</span>
+			{% endif %}
 		</h1>
 		{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
 		{{ article.text | add_soft_hyphens | rest2html | truncatewords_html:article.truncate_after }}
