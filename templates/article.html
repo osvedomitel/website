@@ -1,6 +1,6 @@
 {% extends "extends/base.html" %}
 
-{% load orthography restructuredtext %}
+{% load orthography restructuredtext typography %}
 
 {% block title %}{{ article.title }}{% endblock %}
 
@@ -21,7 +21,7 @@
 		<article class='article__text'>
 			{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
 
-			{{ article.text | add_soft_hyphens | rest2html }}
+			{{ article.text | add_typography | add_soft_hyphens | rest2html }}
 		</article>
 
 		<aside class='article__aside'>
