@@ -2,7 +2,7 @@
 
 {% load orthography restructuredtext typography %}
 
-{% block title %}{{ article.title }}{% endblock %}
+{% block title %}{{ article.title | add_typography }}{% endblock %}
 
 {% block head %}
 <meta name="description" content="{{ article.text | truncatewords:40 }}" />
@@ -15,11 +15,11 @@
 {% block main %}
 <article class="page page__article">
 
-	<h1 class='article__title'>{{ article.title }}</h1>
+	<h1 class='article__title'>{{ article.title | add_typography }}</h1>
 
 	<section class='article__main'>
 		<article class='article__text'>
-			{% if article.subtitle %}<h2>{{ article.subtitle }}</h2>{% endif %}
+			{% if article.subtitle %}<h2>{{ article.subtitle | add_typography }}</h2>{% endif %}
 
 			{{ article.text | add_typography | add_soft_hyphens | rest2html }}
 		</article>
