@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style.css' %}" />
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,400i&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Tinos&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Tinos:400,400i&display=swap" rel="stylesheet">
 
 	<script type="text/javascript" src="{% static 'script.js' %}"></script>
 
@@ -21,18 +21,22 @@
 			<button
 				id='navigation-button'
 				class='navigation__button--mobile nodisplay'>
-				<img src="{% static 'images/menu.png' %}" />
+				<img class="navigation__button_logo" src="{% static 'images/logo-osvedomitel.svg' %}" alt="лого"/>
+				<img class="navigation__button_menu" src="{% static 'images/menu-triangle.svg' %}" alt="меню"/>
 			</button>
 			<h1 id="header-title--mobile" class="header__title header__title--mobile nodisplay">
 				<a class="header__link" href="{% url "home" %}" title="Български освѣдомитель">
-					<span>Български</span>
-					<span>освѣдомитель</span>
+					<span>БЪЛГАРСКИ</span>
+					<span>ОСВѢДОМИТЕЛЬ</span>
 				</a>
 			</h1>
 		</div>
 		<div
 			id='navigation-wrapper'
 			class='navigation__wrapper'>
+			<div class='navigation__logo'>
+				<img src="{% static 'images/logo-osvedomitel.svg' %}" alt="лого"/>
+			</div>
 			<div class='navigation__issues'>
 				<a class="navigation__item {% if active_nav_item == 'all_issues' %}highlight{% endif %}" href="{% url "all-issues" %}" title="Всички броеве">Всички броеве</a>
 			</div>
@@ -49,11 +53,11 @@
 	<header class="header">
 		<h1 id="header-title--desktop" class="header__title">
 			<a class="header__link" href="{% url "home" %}" title="Български освѣдомитель">
-				Български освѣдомитель
+				БЪЛГАРСКИ ОСВѢДОМИТЕЛЬ
 			</a>
 		</h1>
 
-		<h2 class="header__subtitle">Новини отъ България. Издание съ мнѣние.</h2>
+		<h2 class="header__subtitle">Новини&nbsp;отъ&nbsp;България. Издание&nbsp;съ&nbsp;мнѣние.</h2>
 
 		<h3 class="header__issue">
 			{{ current_issue.published | date_ivanchov }} | година <span>{{ current_issue.volume }}</span>, брой <span>{{ current_issue.number }}</span>

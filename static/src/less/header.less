@@ -12,7 +12,7 @@
 .header__date {
     grid-column: 5 /span 1;
     grid-row: 1 / span 1;
-	font-family: "OS TT", serif;
+	font-family: "Tinos", serif;
     color: white;
     font-size: 20px;
     font-weight: normal;
@@ -29,13 +29,11 @@
 
     span:nth-child(1) {
         font-weight: 700;
-        font-size: 20px;
         font-style: normal;
     }
 
     span:nth-child(2) {
         font-weight: 700;
-        font-size: 20px;
         font-style: normal;
     }
 }
@@ -56,6 +54,11 @@
     &--mobile {
         margin-left: 10px;
         font-size: 22px;
+
+        .header__link {
+            letter-spacing: normal;
+            word-spacing: normal;
+        }
     }
 
     &.nodisplay {
@@ -65,9 +68,11 @@
 
 .header__link {
     color: white;
-	font-family: "OS TT", serif;
+	font-family: "Tinos", serif;
 	font-weight: normal;
 	font-size: 35px;
+    letter-spacing: 2px;
+    word-spacing: 3px;
 	text-decoration: none;
     line-height: 35px;
 }
@@ -86,7 +91,7 @@
 
     .header__issue {
         margin: 20px 0 0 0;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .header__link {
@@ -106,8 +111,8 @@
     }
 
     .header__issue {
-        font-size: 18px;
-        line-height: 18px;
+        font-size: 16px;
+        line-height: 16px;
         font-style: normal;
     }
 }
@@ -119,8 +124,16 @@
         grid-template-rows: auto auto;
     }
 
+    .header__link {
+        font-size: 18px;
+    }
+
+    .header__subtitle {
+        font-size: 16px;
+    }
+
     .header__issue {
-        font-size: 14px;
+        font-size: 16px;
         margin: 0;
     }
 }

@@ -11,14 +11,14 @@ Converts wrong typographic „quotes” or “quotes” to „quotes“.
 
 LEFT_QUOTE_REGEX = re.compile(
     r"""
-    (?:^|(?<=\s))[\"“„”]
+    (?:^|(?<=[\s\(\[]))[\"“„”]
     """,
     re.VERBOSE
 )
 
 RIGHT_QUOTE_REGEX = re.compile(
     r"""
-    [\"“„”](?:$|(?=[\s,:;\.!\?]))
+    [\"“„”](?:$|(?=[\s,:;\.!\?\)\]]))
     """,
     re.VERBOSE
 )
