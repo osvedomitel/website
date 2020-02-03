@@ -171,3 +171,10 @@ class Article(models.Model):
     def get_absolute_url(self):
         year, month = self.issue.published.year, self.issue.published.month
         return reverse('article', args=[year, month, self.slug])
+
+    @property
+    def author_names(self):
+        return [
+            author.get_full_name() for author in
+            self.authors.order_by('first_name')
+        ]

@@ -4,13 +4,17 @@
 	{% for article in articles %}
 	<article class='article__text'>
 		<h1 class='article__title'>
-			<a href="{{ article.get_absolute_url }}" title="{{ article.title | add_typography }}">{{ article.title | add_typography }}</a>
+			<a href="{{ article.get_absolute_url }}" title="{{ article.title | add_typography }}">
+				{{ article.title | add_typography }}
+			</a>
 			{% if article.authors.exists %}
 			<br/>
-			<span class='article__author'>{{ article.authors.first.get_full_name }}</span>
+			<span class='article__author'>{{ article.author_names | join:", " }}</span>
 			{% endif %}
 		</h1>
-		{% if article.subtitle %}<h2>{{ article.subtitle | add_typography }}</h2>{% endif %}
+		{% if article.subtitle %}
+		<h2>{{ article.subtitle | add_typography }}</h2>
+		{% endif %}
 		{{ article.text | add_typography | add_soft_hyphens | rest2html | truncatewords_html:article.truncate_after }}
 		<a href="{{ article.get_absolute_url }}" class='article__more' title="{{ article.title | add_typography }}">Прочети още</a>
 	</article>

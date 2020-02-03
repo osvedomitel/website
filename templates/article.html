@@ -27,8 +27,8 @@
 		<aside class='article__aside'>
 			{% if article.authors.exists %}
 			<section class="article__section section__authors">
-				{% for author in article.authors.all %}
-				<span>{{ author.get_full_name }}</span>
+				{% for name in article.author_names %}
+				<span>{{ name }}</span>
 				{% endfor %}
 			</section>
 			{% endif %}
