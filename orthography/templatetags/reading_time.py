@@ -2,7 +2,7 @@ from django import template
 from django.template.defaultfilters import stringfilter
 
 
-WORDS_PER_MINUTE = 150
+WORDS_PER_MINUTE = 180
 
 
 register = template.Library()
