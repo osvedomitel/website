@@ -5,7 +5,6 @@ from orthography import typography
 
 register = template.Library()
 
-#
 
 @register.filter
 @stringfilter

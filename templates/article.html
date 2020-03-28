@@ -1,6 +1,6 @@
 {% extends "extends/base.html" %}
 
-{% load orthography restructuredtext typography %}
+{% load orthography reading_time restructuredtext typography %}
 
 {% block title %}{{ article.title | add_typography }}{% endblock %}
 
@@ -44,13 +44,13 @@
 			</section>
 
 			<section class="article__section section__category">
-				Рубрика:
+				Рубрика
 				<a href="{{ article.category.get_absolute_url }}" title="{{ article.category.name }}">{{ article.category.name }}</a>
 			</section>
 
 			{% if article.keywords.exists %}
 			<section class="article__section section__keywords">
-				Ключови думи:
+				Ключови думи
 				{% for keyword in article.keywords.all %}
 				<a href="{{ keyword.get_absolute_url }}" class='keywords__keyword' title="{{ keyword.keyword }}">{{ keyword.keyword }}</a>
 				{% endfor %}
