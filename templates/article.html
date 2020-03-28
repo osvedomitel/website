@@ -17,6 +17,8 @@
 
 	<h1 class='article__title'>{{ article.title | add_typography }}</h1>
 
+	<p class='article__duration'>Чете се за {{ article.text | reading_time }}</p>
+
 	<section class='article__main'>
 		<article class='article__text'>
 			{% if article.subtitle %}<h2>{{ article.subtitle | add_typography }}</h2>{% endif %}
