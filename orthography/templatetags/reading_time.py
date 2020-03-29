@@ -12,4 +12,5 @@ register = template.Library()
 @stringfilter
 def reading_time(value):
     minutes = round(len(value.split()) / WORDS_PER_MINUTE)
+    minutes = minutes if minutes >= 1 else 1
     return '{} {}'.format(minutes, 'минута' if minutes == 1 else 'минути')
