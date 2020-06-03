@@ -187,3 +187,7 @@ class Article(models.Model):
             author.get_full_name() for author in
             self.authors.order_by('first_name')
         ]
+
+    @property
+    def published(self):
+        return self.created if self.is_extra else self.issue.published
