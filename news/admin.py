@@ -65,6 +65,7 @@ class ArticleAdmin(admin.ModelAdmin):
         ('Таксономия', {
             'fields': (
                 'issue', 'order', 'block', 'category', 'keywords', 'authors',
+                'is_extra',
             )
         }),
         ('Хронология', {

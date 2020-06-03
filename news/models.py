@@ -154,6 +154,15 @@ class Article(models.Model):
     )
     authors = models.ManyToManyField(User, blank=True, verbose_name='автори')
 
+    is_extra = models.BooleanField(
+        default=False, verbose_name='притурена',
+        help_text=(
+            'Ако една статия е отбелязана като притурена към броя си, '
+            'тогава датата ѝ на издаване е датата ѝ на създаване '
+            'вместо датата на издаване на броя ѝ.'
+        )
+    )
+
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
     last_modified = models.DateTimeField(
         auto_now=True, verbose_name='последна промяна'
