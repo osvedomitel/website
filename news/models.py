@@ -163,6 +163,11 @@ class Article(models.Model):
         )
     )
 
+    social_image = models.ImageField(
+        null=True, blank=True, upload_to='articles/social',
+        verbose_name='картинка при споделяне'
+    )
+
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
     last_modified = models.DateTimeField(
         auto_now=True, verbose_name='последна промяна'

@@ -68,10 +68,14 @@ class ArticleAdmin(admin.ModelAdmin):
                 'is_extra',
             )
         }),
+        ('Социални', {
+            'classes': ('collapse',),
+            'fields': ('social_image',)
+        }),
         ('Хронология', {
             'classes': ('collapse',),
             'fields': ('created', 'last_modified',)
-        })
+        }),
     )
     autocomplete_fields = ('keywords', 'authors',)
     prepopulated_fields = {'slug': ('title',)}

@@ -1,6 +1,7 @@
 # main
 django==3.0.3
 docutils==0.15.2
+pillow==7.1.2
 
 # production only
 gunicorn==20.0.4
