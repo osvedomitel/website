@@ -1,0 +1,11 @@
+# main
+django==3.0.3
+docutils==0.15.2
+
+# production only
+gunicorn==20.0.4
+
+# tools
+ipython==7.11.0
+pip-tools==5.2.0
+pyflakes==2.1.1
