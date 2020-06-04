@@ -7,15 +7,18 @@
 {% block head %}
 <meta name="description" content="{{ article.text | truncatewords:40 }}" />
 <meta name="keywords" content="{{ article.keywords.all | join:"," }}" />
-
 {% for author in article.authors.all %}
 <meta name="author" content="{{ author.get_full_name }}" />
 {% endfor %}
+{% endblock %}
 
+{% block social_image %}
 {% if article.social_image %}
 <meta property="og:image" content="{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ article.social_image.url }}" />
 <meta property="og:image:width" content="{{ article.social_image.width }}" />
 <meta property="og:image:height" content="{{ article.social_image.height }}" />
+{% else %}
+{{ block.super }}
 {% endif %}
 {% endblock %}
 
