@@ -8,7 +8,7 @@ asgiref==3.2.3            # via django
 backcall==0.1.0           # via ipython
 click==7.1.2              # via pip-tools
 decorator==4.4.1          # via ipython, traitlets
-django==3.0.3             # via -r requirements.in
+django==3.0.7             # via -r requirements.in
 docutils==0.15.2          # via -r requirements.in
 gunicorn==20.0.4          # via -r requirements.in
 ipython-genutils==0.2.0   # via traitlets
