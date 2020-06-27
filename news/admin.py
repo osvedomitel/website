@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django_mirror.admin import MirrorAdmin
 
 from news.models import Article, Category, Issue, Keyword
 
@@ -53,7 +54,7 @@ class IssueAdmin(admin.ModelAdmin):
 
 
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(MirrorAdmin, admin.ModelAdmin):
     list_display = ('title', 'issue', 'category', 'last_modified',)
     ordering = ('-issue__published', 'order',)
     list_filter = ('category', 'issue',)
@@ -78,5 +79,12 @@ class ArticleAdmin(admin.ModelAdmin):
         }),
     )
     autocomplete_fields = ('keywords', 'authors',)
+    mirror_fields = (
+        ('text', {
+            'mode': 'rst',
+            'addons': ['mode/overlay'],
+            'line_wrapping': True,
+        }),
+    )
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created', 'last_modified',)
