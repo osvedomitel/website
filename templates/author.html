@@ -1,0 +1,23 @@
+{% extends "extends/base.html" %}
+
+{% load orthography restructuredtext typography %}
+
+{% block title %}Авторъ – {{ author.get_full_name }}{% endblock %}
+
+{% block head %}
+<meta name="description" content="Списъкъ на всички статии отъ {{ author.get_full_name }}." />
+{% endblock %}
+
+{% block main %}
+<article class="page page__author">
+	{% if author.profile.bio %}
+	<h1 class="page__heading">Относно {{ author.get_full_name }}</h1>
+	<section class="article__text">
+		{{ author.profile.bio | add_typography | add_soft_hyphens | rest2html }}
+	</section>
+	{% endif %}
+
+	<h1 class="page__heading">Статии от {{ author.get_full_name }}</h1>
+	{% include "includes/list_of_articles.html" %}
+</article>
+{% endblock %}

@@ -15,7 +15,7 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, verbose_name='потребител'
     )
     slug = models.SlugField(allow_unicode=True, verbose_name='охлюв')
-    bio = models.TextField(verbose_name='животоописание')
+    bio = models.TextField(blank=True, verbose_name='животоописание')
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='създаден')
     last_modified = models.DateTimeField(
@@ -217,8 +217,8 @@ class Article(models.Model):
     @property
     def author_names(self):
         return [
-            author.get_full_name() for author in
-            self.authors.order_by('first_name')
+            author.get_full_name()
+            for author in self.authors.order_by('first_name')
         ]
 
     @property

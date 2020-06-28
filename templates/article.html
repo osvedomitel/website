@@ -39,8 +39,12 @@
 		<aside class='article__aside'>
 			{% if article.authors.exists %}
 			<section class="article__section section__authors">
-				{% for name in article.author_names %}
-				<span>{{ name }}</span>
+				{% for author in article.authors.all|dictsort:'first_name' %}
+					{% if author.profile %}
+					<span><a href="{{ author.profile.get_absolute_url }}">{{ author.get_full_name }}</a></span>
+					{% else %}
+					<span>{{ author.get_full_name }}</span>
+					{% endif %}
 				{% endfor %}
 			</section>
 			{% endif %}

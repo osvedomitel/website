@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 
 from news.models import Article, Category, Issue, Keyword
@@ -68,3 +69,17 @@ def keyword(request, slug):
         'articles': articles
     }
     return render(request, 'keyword.html', context)
+
+
+def author(request, slug):
+    author = get_object_or_404(User, profile__slug=slug)
+
+    articles = author.article_set \
+                    .filter(issue__online=True) \
+                    .order_by('-issue__published', 'order',)
+
+    context = {
+        'author': author,
+        'articles': articles
+    }
+    return render(request, 'author.html', context)

@@ -18,6 +18,7 @@ urlpatterns = [
     path('броеве/', news.views.all_issues, name='all-issues'),
     path('рубрики/<str:slug>/', news.views.category, name='category'),
     path('ключови-думи/<str:slug>/', news.views.keyword, name='keyword'),
+    path('avtori/<str:slug>/', news.views.author, name='author'),
 
     path('admin/', admin.site.urls),
 ]
