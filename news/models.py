@@ -14,6 +14,7 @@ class Profile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, verbose_name='потребител'
     )
+    slug = models.SlugField(allow_unicode=True, verbose_name='охлюв')
     bio = models.TextField(verbose_name='животоописание')
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='създаден')
@@ -27,6 +28,9 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+    def get_absolute_url(self):
+        return reverse('author', args=[self.slug])
 
 
 """

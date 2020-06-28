@@ -5,16 +5,23 @@ from news.models import Article, Category, Issue, Keyword, Profile
 
 
 @admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
+class ProfileAdmin(MirrorAdmin, admin.ModelAdmin):
     list_display = ('__str__', 'last_modified',)
     fieldsets = (
         (None, {
-            'fields': ('user', 'bio',)
+            'fields': ('user', 'slug', 'bio',)
         }),
         ('Хронология', {
             'classes': ('collapse',),
             'fields': ('created', 'last_modified',)
         })
+    )
+    mirror_fields = (
+        ('bio', {
+            'mode': 'rst',
+            'addons': ['mode/overlay'],
+            'line_wrapping': True,
+        }),
     )
     readonly_fields = ('created', 'last_modified',)
 
