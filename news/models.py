@@ -6,6 +6,30 @@ from django.urls import reverse
 
 
 """
+authors
+"""
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, verbose_name='потребител'
+    )
+    bio = models.TextField(verbose_name='животоописание')
+
+    created = models.DateTimeField(auto_now_add=True, verbose_name='създаден')
+    last_modified = models.DateTimeField(
+        auto_now=True, verbose_name='последна промяна'
+    )
+
+    class Meta:
+        verbose_name = 'авторски профил'
+        verbose_name_plural = 'авторски профили'
+
+    def __str__(self):
+        return str(self.user)
+
+
+"""
 taxonomy
 """
 

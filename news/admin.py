@@ -1,7 +1,22 @@
 from django.contrib import admin
 from django_mirror.admin import MirrorAdmin
 
-from news.models import Article, Category, Issue, Keyword
+from news.models import Article, Category, Issue, Keyword, Profile
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'last_modified',)
+    fieldsets = (
+        (None, {
+            'fields': ('user', 'bio',)
+        }),
+        ('Хронология', {
+            'classes': ('collapse',),
+            'fields': ('created', 'last_modified',)
+        })
+    )
+    readonly_fields = ('created', 'last_modified',)
 
 
 @admin.register(Category)
