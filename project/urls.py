@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import path, register_converter
 
 import news.views
+import pages.views
 from project import converters
 
 
@@ -21,6 +22,8 @@ urlpatterns = [
     path('avtori/<str:slug>/', news.views.author, name='author'),
 
     path('admin/', admin.site.urls),
+
+    path('<str:slug>/', pages.views.page, name='page'),
 ]
 
 if settings.DEBUG:

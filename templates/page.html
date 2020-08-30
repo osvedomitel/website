@@ -1,0 +1,20 @@
+{% extends "extends/base.html" %}
+
+{% load orthography restructuredtext typography %}
+
+{% block title %}{{ page.title | add_typography }}{% endblock %}
+
+{% block head %}
+<meta name="description" content="{{ page.text | truncatewords:40 }}" />
+{% endblock %}
+
+{% block main %}
+<article class="page page__article">
+	<h1 class='article__title'>{{ page.title | add_typography }}</h1>
+	<section class='article__main'>
+		<article class='article__text'>
+			{{ page.text | add_typography | add_soft_hyphens | rest2html }}
+		</article>
+	</section>
+</article>
+{% endblock %}

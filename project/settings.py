@@ -12,6 +12,7 @@ INSTALLED_APPS = [
     'django_mirror',
     'orthography',
     'news',
+    'pages',
 ]
 
 MIDDLEWARE = [
