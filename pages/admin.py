@@ -17,12 +17,6 @@ class PageAdmin(MirrorAdmin, admin.ModelAdmin):
             'fields': ('created', 'last_modified',)
         }),
     )
-    mirror_fields = (
-        ('text', {
-            'mode': 'rst',
-            'addons': ['mode/overlay'],
-            'line_wrapping': True,
-        }),
-    )
+    mirror_fields = ('text',)
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created', 'last_modified',)

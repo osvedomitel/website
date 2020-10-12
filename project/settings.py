@@ -82,6 +82,16 @@ FIRST_DAY_OF_WEEK = 1
 
 
 """
+Other dependencies
+"""
+
+DJANGO_MIRROR_DEFAULTS = {
+    'mode': 'rst',
+    'line_wrapping': True,
+}
+
+
+"""
 Local settings
 """
 

@@ -16,13 +16,7 @@ class ProfileAdmin(MirrorAdmin, admin.ModelAdmin):
             'fields': ('created', 'last_modified',)
         })
     )
-    mirror_fields = (
-        ('bio', {
-            'mode': 'rst',
-            'addons': ['mode/overlay'],
-            'line_wrapping': True,
-        }),
-    )
+    mirror_fields = ('bio',)
     readonly_fields = ('created', 'last_modified',)
 
 
@@ -101,12 +95,6 @@ class ArticleAdmin(MirrorAdmin, admin.ModelAdmin):
         }),
     )
     autocomplete_fields = ('keywords', 'authors',)
-    mirror_fields = (
-        ('text', {
-            'mode': 'rst',
-            'addons': ['mode/overlay'],
-            'line_wrapping': True,
-        }),
-    )
+    mirror_fields = ('text',)
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created', 'last_modified',)
