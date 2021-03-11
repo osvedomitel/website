@@ -14,6 +14,6 @@
 	{% endif %}
 	<div class='article__excerpt'>
 		{{ article.text | add_typography | add_soft_hyphens | rest2html | truncatewords_html:article.truncate_after }}
-		<a href="{{ article.get_absolute_url }}" title="{{ article.title | add_typography }}" class="article__more">Прочети още</a>
+		<a href="{{ article.get_absolute_url }}" title="{{ article.title | add_typography }}" class="article__more">Вижъ статията</a>
 	</div>
 </article>
