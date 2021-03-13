@@ -10,6 +10,11 @@ class Page(models.Model):
 
     text = models.TextField(verbose_name='текст')
 
+    social_image = models.ImageField(
+        null=True, blank=True, upload_to='pages/social',
+        verbose_name='картинка при споделяне'
+    )
+
     created = models.DateTimeField(auto_now_add=True, verbose_name='създадена')
     last_modified = models.DateTimeField(
         auto_now=True, verbose_name='последна промяна'

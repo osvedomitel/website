@@ -8,6 +8,16 @@
 <meta name="description" content="{{ page.text | truncatewords:40 }}" />
 {% endblock %}
 
+{% block social_image %}
+{% if page.social_image %}
+<meta property="og:image" content="{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ page.social_image.url }}" />
+<meta property="og:image:width" content="{{ page.social_image.width }}" />
+<meta property="og:image:height" content="{{ page.social_image.height }}" />
+{% else %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
 {% block main %}
 <article class="page page__article">
 	<h1 class='article__title'>{{ page.title | add_typography }}</h1>

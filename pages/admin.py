@@ -12,6 +12,10 @@ class PageAdmin(MirrorAdmin, admin.ModelAdmin):
         (None, {
             'fields': ('title', 'slug', 'text',)
         }),
+        ('Социални', {
+            'classes': ('collapse',),
+            'fields': ('social_image',)
+        }),
         ('Хронология', {
             'classes': ('collapse',),
             'fields': ('created', 'last_modified',)
