@@ -47,3 +47,57 @@ h1, h2, h3, h4, h5, label {
 	margin-right: auto;
 	display: block;
 }
+
+blockquote {
+    background: lighten(@purple, 50%);
+    border-left: 10px solid lighten(@purple, 25%);
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+blockquote:before {
+    color: lighten(@purple, 15%);
+    content: open-quote;
+    font-size: 3rem;
+    line-height: 0.1em;
+}
+
+blockquote:after {
+    color: lighten(@purple, 15%);
+    content: close-quote;
+    font-size: 3rem;
+    line-height: 0.1em;
+    vertical-align: -0.35em;
+}
+
+blockquote p:first-child, blockquote p:last-child {
+    display: inline;
+}
+
+blockquote p:first-child:after {
+    content: "\A";
+    white-space: pre;
+}
+
+blockquote p:not(:first-child):before {
+    margin-left: 2rem;
+    content: '';
+    white-space: pre;
+}
+
+blockquote p {
+    font-size: inherit !important;
+    text-indent: 0;
+}
+
+blockquote p.author:before {
+    margin-left: 6rem;
+    content: '';
+    white-space: pre;
+}
+
+blockquote p.author {
+    font-style: normal;
+}
