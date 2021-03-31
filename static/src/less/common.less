@@ -30,11 +30,6 @@ p {
 	font-family: "Tinos", serif;
 	hyphens: manual;
 	text-align: justify;
-	text-indent: 40px;
-}
-
-p:first-of-type {
-	text-indent: 0;
 }
 
 h1, h2, h3, h4, h5, label {
@@ -82,14 +77,12 @@ blockquote p:first-child:after {
 }
 
 blockquote p:not(:first-child):before {
-    margin-left: 2rem;
     content: '';
     white-space: pre;
 }
 
 blockquote p {
     font-size: inherit !important;
-    text-indent: 0;
 }
 
 blockquote p.author:before {
