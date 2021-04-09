@@ -9,5 +9,5 @@ gunicorn==20.0.4
 
 # tools
 ipython==7.18.1
-pip-tools==5.2.0
+pip-tools==6.0.1
 pyflakes==2.2.0
