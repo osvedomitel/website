@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_mirror.admin import MirrorAdmin
 
-from news.models import Article, Category, Issue, Keyword, Profile
+from news.models import Article, Category, Image, Issue, Keyword, Profile
 
 
 @admin.register(Profile)
@@ -97,4 +97,20 @@ class ArticleAdmin(MirrorAdmin, admin.ModelAdmin):
     autocomplete_fields = ('keywords', 'authors',)
     mirror_fields = ('text',)
     prepopulated_fields = {'slug': ('title',)}
+    readonly_fields = ('created', 'last_modified',)
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'last_modified',)
+    ordering = ('-image',)
+    fieldsets = (
+        (None, {
+            'fields': ('image',)
+        }),
+        ('Хронология', {
+            'classes': ('collapse',),
+            'fields': ('created', 'last_modified',)
+        })
+    )
     readonly_fields = ('created', 'last_modified',)

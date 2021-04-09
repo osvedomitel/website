@@ -224,3 +224,27 @@ class Article(models.Model):
     @property
     def published(self):
         return self.created if self.is_extra else self.issue.published
+
+
+"""
+uploads
+"""
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='%Y/%m/', verbose_name='файл')
+
+    created = models.DateTimeField(auto_now_add=True, verbose_name='създаден')
+    last_modified = models.DateTimeField(
+        auto_now=True, verbose_name='последна промяна'
+    )
+
+    class Meta:
+        verbose_name = 'изображение'
+        verbose_name_plural = 'изображения'
+
+    def __str__(self):
+        return self.image.name
+
+    def get_absolute_url(self):
+        return self.image.url
